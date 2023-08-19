@@ -1,0 +1,26 @@
+<div class=" row col-12 justify-content-center align-content-center">
+  <span class="loader" *ngIf="isLoading"></span>
+</div>
+
+<div class="alert alert-danger text-center" role="alert" *ngIf="error">
+    <pre>
+      ERROR:
+      {{ error | json }}
+    </pre>
+</div>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col" *ngFor="let user of users">
+    <div class="card h-100" *ngIf="!isLoading">
+      <img [src]="user.avatar" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ user.first_name + ' ' + user.last_name }}</h5>
+        <p class="card-text">{{user.email}}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary"> id: {{user.id}}</small>
+      </div>
+    </div>
+  </div>
+</div>
